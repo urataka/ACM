@@ -1,7 +1,7 @@
 Acm::Application.routes.draw do
-  resources :sales
-
   resources :customers
+
+  resources :sales
 
   resources :users
 
