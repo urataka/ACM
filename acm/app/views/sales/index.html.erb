@@ -1,0 +1,49 @@
+<h1>Listing sales</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Menu</th>
+      <th>Quantity</th>
+      <th>Price</th>
+      <th>Customer</th>
+      <th>Memo</th>
+      <th>Cancel</th>
+      <th>Deleted at</th>
+      <th>Updated user</th>
+      <th>Updated at</th>
+      <th>Created user</th>
+      <th>Created at</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @sales.each do |sale| %>
+    <tr>
+      <td><%= sale.date %></td>
+      <td><%= sale.menu_id %></td>
+      <td><%= sale.quantity %></td>
+      <td><%= sale.price %></td>
+      <td><%= sale.customer_id %></td>
+      <td><%= sale.memo %></td>
+      <td><%= sale.cancel %></td>
+      <td><%= sale.deleted_at %></td>
+      <td><%= sale.updated_user %></td>
+      <td><%= sale.updated_at %></td>
+      <td><%= sale.created_user %></td>
+      <td><%= sale.created_at %></td>
+      <td><%= link_to 'Show', sale %></td>
+      <td><%= link_to 'Edit', edit_sale_path(sale) %></td>
+      <td><%= link_to 'Destroy', sale, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br />
+
+<%= link_to 'New Sale', new_sale_path %>
