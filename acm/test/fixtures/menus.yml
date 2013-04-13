@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  default_payment: 1
+  note: MyText
+  display_flg: false
+  updated_user: 1
+  updated_at: 2013-04-14 00:40:14
+  created_user: 1
+  created_at: 2013-04-14 00:40:14
+
+two:
+  name: MyString
+  default_payment: 1
+  note: MyText
+  display_flg: false
+  updated_user: 1
+  updated_at: 2013-04-14 00:40:14
+  created_user: 1
+  created_at: 2013-04-14 00:40:14

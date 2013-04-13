@@ -18,7 +18,7 @@ class CustomersControllerTest < ActionController::TestCase
 
   test "should create customer" do
     assert_difference('Customer.count') do
-      post :create, customer: { address: @customer.address, created_at: @customer.created_at, created_user: @customer.created_user, email: @customer.email, identifier: @customer.identifier, mei: @customer.mei, mei: @customer.mei, note: @customer.note, offered_on: @customer.offered_on, postcode: @customer.postcode, sei_kana: @customer.sei_kana, sei_kanji: @customer.sei_kanji, tel: @customer.tel, updated_at: @customer.updated_at, updated_user: @customer.updated_user, url: @customer.url }
+      post :create, customer: { address: @customer.address, created_at: @customer.created_at, created_user: @customer.created_user, email: @customer.email, identifier: @customer.identifier, mei_kana: @customer.mei_kana, mei_kanji: @customer.mei_kanji, note: @customer.note, offered_on: @customer.offered_on, postcode: @customer.postcode, sei_kana: @customer.sei_kana, sei_kanji: @customer.sei_kanji, tel: @customer.tel, updated_at: @customer.updated_at, updated_user: @customer.updated_user, url: @customer.url }
     end
 
     assert_redirected_to customer_path(assigns(:customer))
@@ -35,7 +35,7 @@ class CustomersControllerTest < ActionController::TestCase
   end
 
   test "should update customer" do
-    patch :update, id: @customer, customer: { address: @customer.address, created_at: @customer.created_at, created_user: @customer.created_user, email: @customer.email, identifier: @customer.identifier, mei: @customer.mei, mei: @customer.mei, note: @customer.note, offered_on: @customer.offered_on, postcode: @customer.postcode, sei_kana: @customer.sei_kana, sei_kanji: @customer.sei_kanji, tel: @customer.tel, updated_at: @customer.updated_at, updated_user: @customer.updated_user, url: @customer.url }
+    patch :update, id: @customer, customer: { address: @customer.address, created_at: @customer.created_at, created_user: @customer.created_user, email: @customer.email, identifier: @customer.identifier, mei_kana: @customer.mei_kana, mei_kanji: @customer.mei_kanji, note: @customer.note, offered_on: @customer.offered_on, postcode: @customer.postcode, sei_kana: @customer.sei_kana, sei_kanji: @customer.sei_kanji, tel: @customer.tel, updated_at: @customer.updated_at, updated_user: @customer.updated_user, url: @customer.url }
     assert_redirected_to customer_path(assigns(:customer))
   end
 
