@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130413154246) do
+ActiveRecord::Schema.define(version: 20130414121007) do
 
   create_table "customers", force: true do |t|
     t.datetime "offered_on"
@@ -44,14 +44,15 @@ ActiveRecord::Schema.define(version: 20130413154246) do
   end
 
   create_table "sales", force: true do |t|
-    t.date     "date"
-    t.integer  "menu_id"
-    t.integer  "quantity"
-    t.integer  "price"
     t.integer  "customer_id"
-    t.text     "memo"
-    t.boolean  "cancel"
+    t.integer  "menu_id"
+    t.date     "attended_on"
+    t.integer  "quantity"
+    t.integer  "payment"
+    t.boolean  "paid_flg"
+    t.text     "note"
     t.datetime "deleted_at"
+    t.datetime "canceled_at"
     t.integer  "updated_user"
     t.datetime "updated_at"
     t.integer  "created_user"
