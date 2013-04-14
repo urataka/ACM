@@ -1,59 +1,63 @@
-<%= form_for(@sale) do |f| %>
-  <% if @sale.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@sale.errors.count, "error") %> prohibited this sale from being saved:</h2>
+<% content_for :script do %>
+<script type="text/javascript">
+  $(function() {
+    // 空の入力行を保持
+    var record = $("table.table tbody tr").clone();
+    // さらに入力ボタン押下時
+    $("#addRecordButton").click(function() {
+      $("table.table tbody").append(record.clone());
+      return false;
+    });
 
-      <ul>
-      <% @sale.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+    $(document).on('click', "span.deleteRecord", function() {
+      $(this).closest("tr").remove();
+    });
+  });
+</script>
+<% end %>
 
-  <table>
-    <tr>
-      <th>実施日</th>
-      <th>セッションメニュー</th>
-      <th>数量</th>
-      <th>金額</th>
-      <th>顧客名</th>
-      <th>備考</th>
-    </tr>
-    <tr>
-      <td>
-        <div class="field">
-          <%= f.date_select :date %>
-        </div>
-      </td>
-      <td>
-        <div class="field">
-          <%= f.number_field :menu_id %>
-        </div>
-      </td>
-      <td>
-        <div class="field">
-          <%= f.number_field :quantity %>
-        </div>
-      </td>
-      <td>
-        <div class="field">
-          <%= f.number_field :price %>
-        </div>
-      </td>
-      <td>
-        <div class="field">
-          <%= f.number_field :customer_id %>
-        </div>
-      </td>
-      <td>
-        <div class="field">
-          <%= f.text_area :memo %>
-        </div>
-      </td>
-    </tr>
+<%= form_for @sale, :html => { :class => '' } do |f| %>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>実施日</th>
+        <th>セッションメニュー</th>
+        <th>数量</th>
+        <th>金額</th>
+        <th>顧客名</th>
+        <th>備考</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <%= f.date_field :attended_on, :class => 'date_field input-medium' %>
+        </td>
+        <td>
+          <%= f.collection_select :menu_id, Menu.where(:display_flg => true), :id, :name, :prompt => "選択してください", :class => 'text_field input-medium' %>
+        </td>
+        <td>
+          <%= f.number_field :quantity, :class => 'number_field input-mini' %>
+        </td>
+        <td>
+          <%= f.number_field :payment, :class => 'number_field input-small' %>円
+        </td>
+        <td>
+          <%= f.text_field :customer_id, :class => 'text_field input-medium' %>
+        </td>
+        <td>
+          <%= f.text_field :note, :class => 'text_field input-mideum' %>
+        </td>
+        <td><span class="deleteRecord btn">−</span></td>
+      </tr>
+    </tbody>
   </table>
-  <div class="actions">
-    <%= f.submit %>
+  <a href="" id="addRecordButton" class="btn">＋さらに入力</a>
+
+  <div class="form-actions">
+    <%= f.submit "確認", :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("戻る")),
+                sales_path, :class => 'btn' %>
   </div>
 <% end %>

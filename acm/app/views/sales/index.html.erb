@@ -1,49 +1,56 @@
-<h1>Listing sales</h1>
-
-<table>
+<%- model_class = Sale -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+</div>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Date</th>
-      <th>Menu</th>
-      <th>Quantity</th>
-      <th>Price</th>
-      <th>Customer</th>
-      <th>Memo</th>
-      <th>Cancel</th>
-      <th>Deleted at</th>
-      <th>Updated user</th>
-      <th>Updated at</th>
-      <th>Created user</th>
-      <th>Created at</th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:customer_id) %></th>
+      <th><%= model_class.human_attribute_name(:menu_id) %></th>
+      <th><%= model_class.human_attribute_name(:attended_on) %></th>
+      <th><%= model_class.human_attribute_name(:quantity) %></th>
+      <th><%= model_class.human_attribute_name(:payment) %></th>
+      <th><%= model_class.human_attribute_name(:paid_flg) %></th>
+      <th><%= model_class.human_attribute_name(:note) %></th>
+      <th><%= model_class.human_attribute_name(:deleted_at) %></th>
+      <th><%= model_class.human_attribute_name(:canceled_at) %></th>
+      <th><%= model_class.human_attribute_name(:updated_user) %></th>
+      <th><%= model_class.human_attribute_name(:created_user) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
-
   <tbody>
     <% @sales.each do |sale| %>
-    <tr>
-      <td><%= sale.date %></td>
-      <td><%= sale.menu_id %></td>
-      <td><%= sale.quantity %></td>
-      <td><%= sale.price %></td>
-      <td><%= sale.customer_id %></td>
-      <td><%= sale.memo %></td>
-      <td><%= sale.cancel %></td>
-      <td><%= sale.deleted_at %></td>
-      <td><%= sale.updated_user %></td>
-      <td><%= sale.updated_at %></td>
-      <td><%= sale.created_user %></td>
-      <td><%= sale.created_at %></td>
-      <td><%= link_to 'Show', sale %></td>
-      <td><%= link_to 'Edit', edit_sale_path(sale) %></td>
-      <td><%= link_to 'Destroy', sale, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    </tr>
+      <tr>
+        <td><%= link_to sale.id, sale_path(sale) %></td>
+        <td><%= sale.customer_id %></td>
+        <td><%= sale.menu_id %></td>
+        <td><%= sale.attended_on %></td>
+        <td><%= sale.quantity %></td>
+        <td><%= sale.payment %></td>
+        <td><%= sale.paid_flg %></td>
+        <td><%= sale.note %></td>
+        <td><%= sale.deleted_at %></td>
+        <td><%= sale.canceled_at %></td>
+        <td><%= sale.updated_user %></td>
+        <td><%= sale.created_user %></td>
+        <td><%=l sale.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_sale_path(sale), :class => 'btn btn-mini' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      sale_path(sale),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
     <% end %>
   </tbody>
 </table>
 
-<br />
-
-<%= link_to 'New Sale', new_sale_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_sale_path,
+            :class => 'btn btn-primary' %>

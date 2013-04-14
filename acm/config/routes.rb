@@ -1,8 +1,8 @@
 Acm::Application.routes.draw do
+  resources :sales
+
   get "welcome/index"
   resources :customers
-
-  resources :sales
 
   resources :users
 

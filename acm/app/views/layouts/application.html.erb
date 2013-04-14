@@ -20,7 +20,8 @@
 
     <!-- For iPhone with high-resolution Retina display: -->
     <!-- Size should be 114 x 114 pixels -->
-    <%= favicon_link_tag 'images/apple-touch-icon-114x114-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '114x114' %>
+    <!-- <%= favicon_link_tag 'images/apple-touch-icon-114x114-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '114x114' %>
+    -->
 
     <!-- For first- and second-generation iPad: -->
     <!-- Size should be 72 x 72 pixels -->
@@ -58,11 +59,11 @@
 
     <div class="container">
         <div class="row">
-          <div class="span9">
+          <div class="span12">
             <%= bootstrap_flash %>
             <%= yield %>
           </div>
-          <div class="span3">
+          <!-- <div class="span3">
             <div class="well sidebar-nav">
               <h3>Sidebar</h3>
               <ul class="nav nav-list">
@@ -71,8 +72,8 @@
                 <li><%= link_to "Link2", "/path2"  %></li>
                 <li><%= link_to "Link3", "/path3"  %></li>
               </ul>
-            </div><!--/.well -->
-          </div><!--/span-->
+            </div>
+          </div>--><!--/span-->
         </div><!--/row-->
 
       <footer>
@@ -85,6 +86,6 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <%= javascript_include_tag "application" %>
-
+    <%= yield :script %>
   </body>
 </html>
