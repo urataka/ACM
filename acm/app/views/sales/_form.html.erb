@@ -11,54 +11,48 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :date %><br />
-    <%= f.date_select :date %>
-  </div>
-  <div class="field">
-    <%= f.label :menu_id %><br />
-    <%= f.number_field :menu_id %>
-  </div>
-  <div class="field">
-    <%= f.label :quantity %><br />
-    <%= f.number_field :quantity %>
-  </div>
-  <div class="field">
-    <%= f.label :price %><br />
-    <%= f.number_field :price %>
-  </div>
-  <div class="field">
-    <%= f.label :customer_id %><br />
-    <%= f.number_field :customer_id %>
-  </div>
-  <div class="field">
-    <%= f.label :memo %><br />
-    <%= f.text_area :memo %>
-  </div>
-  <div class="field">
-    <%= f.label :cancel %><br />
-    <%= f.check_box :cancel %>
-  </div>
-  <div class="field">
-    <%= f.label :deleted_at %><br />
-    <%= f.datetime_select :deleted_at %>
-  </div>
-  <div class="field">
-    <%= f.label :updated_user %><br />
-    <%= f.number_field :updated_user %>
-  </div>
-  <div class="field">
-    <%= f.label :updated_at %><br />
-    <%= f.datetime_select :updated_at %>
-  </div>
-  <div class="field">
-    <%= f.label :created_user %><br />
-    <%= f.number_field :created_user %>
-  </div>
-  <div class="field">
-    <%= f.label :created_at %><br />
-    <%= f.datetime_select :created_at %>
-  </div>
+  <table>
+    <tr>
+      <th>実施日</th>
+      <th>セッションメニュー</th>
+      <th>数量</th>
+      <th>金額</th>
+      <th>顧客名</th>
+      <th>備考</th>
+    </tr>
+    <tr>
+      <td>
+        <div class="field">
+          <%= f.date_select :date %>
+        </div>
+      </td>
+      <td>
+        <div class="field">
+          <%= f.number_field :menu_id %>
+        </div>
+      </td>
+      <td>
+        <div class="field">
+          <%= f.number_field :quantity %>
+        </div>
+      </td>
+      <td>
+        <div class="field">
+          <%= f.number_field :price %>
+        </div>
+      </td>
+      <td>
+        <div class="field">
+          <%= f.number_field :customer_id %>
+        </div>
+      </td>
+      <td>
+        <div class="field">
+          <%= f.text_area :memo %>
+        </div>
+      </td>
+    </tr>
+  </table>
   <div class="actions">
     <%= f.submit %>
   </div>
