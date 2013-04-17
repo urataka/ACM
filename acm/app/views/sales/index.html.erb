@@ -36,7 +36,7 @@
         <td><%= sale.canceled_at %></td>
         <td><%= sale.updated_user %></td>
         <td><%= sale.created_user %></td>
-        <td><%=l sale.created_at %></td>
+        <td><%= sale.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_sale_path(sale), :class => 'btn btn-mini' %>
