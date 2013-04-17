@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130414121007) do
+ActiveRecord::Schema.define(version: 20130416234440) do
+
+  create_table "accounts", force: true do |t|
+    t.string   "name"
+    t.integer  "disp_order",  default: 100,  null: false
+    t.boolean  "is_active",   default: true, null: false
+    t.text     "note"
+    t.integer  "update_user"
+    t.datetime "updated_at"
+    t.integer  "create_user"
+    t.datetime "created_at"
+  end
 
   create_table "customers", force: true do |t|
     t.datetime "offered_on"

@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @account.name %>
+</p>
+
+<p>
+  <strong>Disp order:</strong>
+  <%= @account.disp_order %>
+</p>
+
+<p>
+  <strong>Is active:</strong>
+  <%= @account.is_active %>
+</p>
+
+<p>
+  <strong>Note:</strong>
+  <%= @account.note %>
+</p>
+
+<p>
+  <strong>Update user:</strong>
+  <%= @account.update_user %>
+</p>
+
+<p>
+  <strong>Updated at:</strong>
+  <%= @account.updated_at %>
+</p>
+
+<p>
+  <strong>Create user:</strong>
+  <%= @account.create_user %>
+</p>
+
+<p>
+  <strong>Created at:</strong>
+  <%= @account.created_at %>
+</p>
+
+
+<%= link_to 'Edit', edit_account_path(@account) %> |
+<%= link_to 'Back', accounts_path %>
