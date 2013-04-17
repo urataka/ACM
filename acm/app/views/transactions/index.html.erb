@@ -1,0 +1,47 @@
+<h1>Listing transactions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Sale</th>
+      <th>Target account</th>
+      <th>Source account</th>
+      <th>Amount</th>
+      <th>Transact on</th>
+      <th>Note</th>
+      <th>Deleted at</th>
+      <th>Update user</th>
+      <th>Updated at</th>
+      <th>Create user</th>
+      <th>Created at</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @transactions.each do |transaction| %>
+    <tr>
+      <td><%= transaction.sale_id %></td>
+      <td><%= transaction.target_account_id %></td>
+      <td><%= transaction.source_account_id %></td>
+      <td><%= transaction.amount %></td>
+      <td><%= transaction.transact_on %></td>
+      <td><%= transaction.note %></td>
+      <td><%= transaction.deleted_at %></td>
+      <td><%= transaction.update_user %></td>
+      <td><%= transaction.updated_at %></td>
+      <td><%= transaction.create_user %></td>
+      <td><%= transaction.created_at %></td>
+      <td><%= link_to 'Show', transaction %></td>
+      <td><%= link_to 'Edit', edit_transaction_path(transaction) %></td>
+      <td><%= link_to 'Destroy', transaction, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br />
+
+<%= link_to 'New Transaction', new_transaction_path %>

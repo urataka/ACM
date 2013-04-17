@@ -1,0 +1,60 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Sale:</strong>
+  <%= @transaction.sale_id %>
+</p>
+
+<p>
+  <strong>Target account:</strong>
+  <%= @transaction.target_account_id %>
+</p>
+
+<p>
+  <strong>Source account:</strong>
+  <%= @transaction.source_account_id %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @transaction.amount %>
+</p>
+
+<p>
+  <strong>Transact on:</strong>
+  <%= @transaction.transact_on %>
+</p>
+
+<p>
+  <strong>Note:</strong>
+  <%= @transaction.note %>
+</p>
+
+<p>
+  <strong>Deleted at:</strong>
+  <%= @transaction.deleted_at %>
+</p>
+
+<p>
+  <strong>Update user:</strong>
+  <%= @transaction.update_user %>
+</p>
+
+<p>
+  <strong>Updated at:</strong>
+  <%= @transaction.updated_at %>
+</p>
+
+<p>
+  <strong>Create user:</strong>
+  <%= @transaction.create_user %>
+</p>
+
+<p>
+  <strong>Created at:</strong>
+  <%= @transaction.created_at %>
+</p>
+
+
+<%= link_to 'Edit', edit_transaction_path(@transaction) %> |
+<%= link_to 'Back', transactions_path %>
